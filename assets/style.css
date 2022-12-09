@@ -9,8 +9,15 @@
 header{
     height: 15vh;
 }
-.card{
+.cards{
     width: 16rem;
+    border-radius: 15px;
+    margin: 10px;
+    height: 350px;
+}
+.cardPhotos{
+    border-radius: 10px;
+    margin-bottom: 5px;
 }
 #museum{
     object-fit: contain;
@@ -62,8 +69,6 @@ table{
             display: flex;
             flex-direction: column;
         }
-    #cardcolumn{
-        flex-direction: column;
     }
     .card{
         padding: 10px;
@@ -84,7 +89,7 @@ table{
     tr{
         width: 200px;
     }
-}
+
 @media (min-width:768px) and (max-width:1023px){
     #cardcolumn{
         flex-direction: column;
@@ -93,7 +98,7 @@ table{
         padding: 10px;
         border: none;
         background-color: #212529;
-          width: 500px ;
+        width: 500px ;
     }
     main{
         display: flex;
@@ -101,6 +106,5 @@ table{
         justify-content: center;
         align-items: center;
     }
-  
 }
 
