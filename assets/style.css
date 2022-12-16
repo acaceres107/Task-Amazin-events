@@ -9,11 +9,15 @@
 header{
     height: 15vh;
 }
+main{
+    min-height: 65vh;
+}
 .cards{
     width: 16rem;
     border-radius: 15px;
     margin: 10px;
     height: 350px;
+
 }
 .cardPhotos{
     border-radius: 10px;
