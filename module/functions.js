@@ -1,4 +1,12 @@
-function render(list, container){
+let datas;
+
+
+fetch( "https://amazing-events.onrender.com/api/events")
+    .then( res => res.json())
+    .then( datos => {datas = datos.events})
+    .catch( err => console.log(err))
+
+export function render(list, container){
     
     let html = ""
     for (let event of list){
@@ -17,7 +25,7 @@ function render(list, container){
         }
     container.innerHTML = html;
 }
-function render1(list, container){
+export function render1(list, container){
     let html = ""
     for (let event of list){
         if (event.date >= "2022"){ 
@@ -36,7 +44,7 @@ function render1(list, container){
         }
     container.innerHTML = html;
 }
-function render2(list, container){
+export function render2(list, container){
     let html = ""
     for (let event of list){
         if (event.date < "2022"){ 
@@ -55,7 +63,7 @@ function render2(list, container){
         }
     container.innerHTML = html;
 }
-function renderCheck(list, container){
+export function renderCheck(list, container){
     let html = ''
     let newSet = new Set(list.map(element => element.category))
     let categories = Array.from(newSet)
@@ -66,7 +74,8 @@ function renderCheck(list, container){
     container.innerHTML = html
 }
 
-function filterCategory(events){
+
+export function filterCategory(events){
     const checked = document.querySelectorAll("input[type = 'checkbox']:checked")
     let selectedCategories = Array.from(checked).map((element) => element.value)
     const filter = selectedCategories.map((element) => events.filter((event) =>{
@@ -80,14 +89,16 @@ function filterCategory(events){
     }
 }
 
-function filterSearch(events, input){
+export function filterSearch(events, input){
         return events.filter((event) =>
         event.name.toUpperCase().includes(input.value.toUpperCase())
     );
 }
 
-function filter(events, search){
+export function filter(events, search){
     let filterByCategory = filterCategory(events)
     let filterBySearch = filterSearch(filterByCategory, search)
     return filterBySearch
 }
+
+
